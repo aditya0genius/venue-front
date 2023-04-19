@@ -3,6 +3,10 @@ import axios from 'axios';
 import Loader from '../components/Loader';
 import Error from '../components/Error';
 
+const axiosInstance = axios.create ({
+  baseURL: process.env.PORT,
+})
+
 function Loginscreen() {
   const [email, setemail] = useState('');
   const [password, setpassword] = useState('');
@@ -17,7 +21,7 @@ function Loginscreen() {
     }
       try {
         setloading(true);
-        const result = (await axios.post('/api/user/login', user)).data;
+        const result = (await axiosInstance.post('/api/user/login', user)).data;
         setloading(false);
 
         localStorage.setItem('currentuser', JSON.stringify(result));
