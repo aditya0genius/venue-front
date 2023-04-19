@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Loader from "../components/Loader";
 import Error from "../components/Error";
-import swal from 'sweetalert2'
-import { set } from "mongoose";
+import swal from 'sweetalert2';
 
 const Addroom = () => {
     const [name, setname] = useState([])
